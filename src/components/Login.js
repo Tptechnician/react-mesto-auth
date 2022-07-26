@@ -35,7 +35,7 @@ function Login(props) {
       </span>
       <input
         className={`popup__input popup__input_type_authentication ${errors.password ? 'popup__input_type_error' : ''}`}
-        type="text"
+        type="password"
         value={values.password || ''}
         name="password"
         id="input-activity"
