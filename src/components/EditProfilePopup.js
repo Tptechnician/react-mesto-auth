@@ -5,13 +5,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function EditProfilePopup(props) {
   const currentUser = React.useContext(CurrentUserContext);
-  const {values, isValid, errors, resetErrors, handleChange, setValues} = FormValidator({});
-  /*const [formValues, setFormValues] = React.useState({name: '', about: ''});
-
-  function handleChange(e) {
-    const {name, value} = e.target;
-    setFormValues(prevState => ({ ...prevState, [name]: value }));
-  }*/
+  const { values, isValid, errors, resetErrors, handleChange, setValues } = FormValidator({});
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -20,7 +14,7 @@ function EditProfilePopup(props) {
 
   React.useEffect(() => {
     resetErrors();
-    setValues({name: currentUser.name, about: currentUser.about});
+    setValues({ name: currentUser.name, about: currentUser.about });
   }, [currentUser, props.isOpen]);
 
   return (
@@ -34,11 +28,11 @@ function EditProfilePopup(props) {
       isLoading={props.isLoading}
       isDisabled={isValid}
     >
-      <input 
+      <input
         className={`popup__input ${errors.name ? 'popup__input_type_error' : ''}`}
-        type="text" 
+        type="text"
         value={values.name || ''}
-        name="name" 
+        name="name"
         id="input-name"
         placeholder="Имя"
         minLength="2"
@@ -47,13 +41,13 @@ function EditProfilePopup(props) {
         onChange={handleChange}
       />
       <span className="popup__form-error" id="input-name-error">
-      {isValid ? '' : errors.name}
+        {isValid ? '' : errors.name}
       </span>
-      <input 
+      <input
         className={`popup__input ${errors.about ? 'popup__input_type_error' : ''}`}
-        type="text" 
+        type="text"
         value={values.about || ''}
-        name="about" 
+        name="about"
         id="input-activity"
         placeholder="О себе"
         minLength="2"
@@ -62,7 +56,7 @@ function EditProfilePopup(props) {
         onChange={handleChange}
       />
       <span className="popup__form-error" id="input-activity-error">
-      {isValid ? '' : errors.about}
+        {isValid ? '' : errors.about}
       </span>
     </PopupWithForm>
   );
