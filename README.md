@@ -75,4 +75,4 @@ Mesto - это интерактивная страница, на которой 
 - [Макет 6-7](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6);
 - [Макет 9](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint).
 
-[Ссылка страницы на github pages](https://tptechnician.github.io/mesto-react/)
+[Ссылка страницы на github pages](https://tptechnician.github.io/react-mesto-auth/)
