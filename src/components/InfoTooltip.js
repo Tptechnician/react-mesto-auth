@@ -23,7 +23,7 @@ function InfoTooltip(props) {
           src={props.isSuccessRegistration ? registrationIconTrue : registrationIconFalse}
           alt={props.isSuccessRegistration ? 'иконка успешной регистрации' : 'иконка не успешной регистрации'}
         />
-        <h3 className="popup__title popup__title_direction_center">{props.isSuccessRegistration ? 'Вы успешно зарегистрировались!' : 'Что-то пошло не так! Пропробуйте ещё раз.'}</h3>
+        <h3 className="popup__title popup__title_type_infotooltip">{props.isSuccessRegistration ? 'Вы успешно зарегистрировались!' : 'Что-то пошло не так! Пропробуйте ещё раз.'}</h3>
       </div>
     </Popup>
   )

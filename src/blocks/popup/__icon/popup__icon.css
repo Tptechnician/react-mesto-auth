@@ -3,3 +3,9 @@
     padding: 0;
     width: 120px;
 }
+
+@media(min-width: 320px) and (max-width: 530px) {
+    .popup__icon {
+        margin: 0 0 40px;
+    }
+}

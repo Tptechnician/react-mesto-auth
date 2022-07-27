@@ -19,7 +19,7 @@ import Main from './Main.js';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(false);
+  const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(true);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
