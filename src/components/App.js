@@ -7,18 +7,21 @@ import DeletePlacePopup from './DeletePlacePopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ProtectedRoute from './ProtectedRoute.js';
 import AddPlacePopup from './AddPlacePopup.js';
+import InfoTooltip from './InfoTooltip.js';
 import ImagePopup from './ImagePopup.js';
-import Login from './Login.js';
 import Register from './Register.js';
 import api from '../utils/api.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import Login from './Login.js';
 import Main from './Main.js';
 
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = React.useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
@@ -27,6 +30,14 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [loggedIn, setLoggedIn] = React.useState(false);
+
+  function handleEditSuccessRegistration() {
+    setisSuccessRegistration(!isSuccessRegistration);
+  }
+
+  function handleEditInfoTooltipClick() {
+    setisInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
+  }
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
@@ -45,6 +56,7 @@ function App() {
   }
 
   function closeAllPopups() {
+    setisInfoTooltipPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -209,6 +221,12 @@ function App() {
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups}
           card={selectedCard}
+        />
+
+        <InfoTooltip
+          isOpen={isInfoTooltipPopupOpen}
+          onClose={closeAllPopups}
+          isSuccessRegistration={isSuccessRegistration}
         />
       </div>
     </CurrentUserContext.Provider>

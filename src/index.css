@@ -53,3 +53,6 @@
 @import url(./blocks/popup/__content/popup__content_type_authentication/popup__content_type_authentication.css);
 @import url(./blocks/popup/__input/_type_authentication/popup__input_type_authentication.css);
 @import url(./blocks/popup/__title/_theme_dark/popup__title_theme_dark.css);
+@import url(./blocks/popup/__icon/popup__icon.css);
+@import url(./blocks/popup/__title/_direction_center/popup__title_direction_center.css);
+@import url(./blocks/popup/__content/_type_infotooltip/popup__content_type_infotooltip.css);

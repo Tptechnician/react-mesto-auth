@@ -6,7 +6,7 @@ function Register(props) {
   const { values, isValid, errors, resetErrors, handleChange } = FormValidator({});
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log('Форма входа');
+    console.log('Форма регистрации');
     resetErrors();
   }
   return (

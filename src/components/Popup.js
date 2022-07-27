@@ -2,18 +2,19 @@ import React, { useEffect } from 'react';
 
 function Popup(props) {
   useEffect(() => {
-      if (props.isOpen === true) {
-    document.addEventListener('keydown', handleEscClose);
-  }
-    return () => {document.removeEventListener('keydown', handleEscClose);}
+    if (props.isOpen === true) {
+      document.addEventListener('keydown', handleEscClose);
+    }
+    return () => { document.removeEventListener('keydown', handleEscClose); }
   }, [props.isOpen]);
 
   function handleClickClose(evt) {
     if (evt.target === evt.currentTarget) {
       props.onClose();
-  }};
+    }
+  };
 
-  function handleEscClose(evt){
+  function handleEscClose(evt) {
     if (evt.key === "Escape") {
       props.onClose();
     };
