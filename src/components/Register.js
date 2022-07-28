@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Form from './Form.js';
 import { FormValidator } from './FormValidator.js';
 
 function Register(props) {
   const { values, isValid, errors, resetErrors, handleChange } = FormValidator({});
+
   function handleSubmit(evt) {
     evt.preventDefault();
     console.log('Форма регистрации');
     resetErrors();
   }
+
+  const linkAuthorization = (<p className='form__paragraph'>Уже зарегистрированы? <Link className='form__link' to="/sign-in">Войти</Link></p>)
   return (
     <Form
       name='register'
@@ -16,6 +20,7 @@ function Register(props) {
       buttonText='Зарегистрироваться'
       onSubmit={handleSubmit}
       isDisabled={isValid}
+      linkAuthorization={linkAuthorization}
     >
       <input
         className={`popup__input ${errors.email ? 'popup__input_type_error' : ''} popup__input_type_authentication`}

@@ -14,6 +14,7 @@ function Form(props) {
         <button className={`popup__save ${!props.isDisabled ? 'popup__save_no-active' : ''} popup__save_type_authentication`} type="submit" disabled={!props.isDisabled}>
           {props.buttonText}
         </button>
+        {props.linkAuthorization}
       </form>
     </div>
   );
