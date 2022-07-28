@@ -31,6 +31,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [userEmail, setUserEmail] = React.useState('pavel@gmail.com');
   const history = useHistory;
 
   function handleEditSuccessRegistration() {
@@ -162,7 +163,10 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header />
+        <Header
+          loggedIn={loggedIn}
+          userEmail={userEmail}
+        />
         <Switch>
           <Route path="/sign-up">
             <Register />
