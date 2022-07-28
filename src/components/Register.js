@@ -37,14 +37,14 @@ function Register(props) {
         type="password"
         value={values.password || ''}
         name="password"
-        id="input-activity"
+        id="input-password"
         placeholder="Пароль"
         minLength="2"
         maxLength="20"
         required
         onChange={handleChange}
       />
-      <span className="popup__form-error" id="input-activity-error">
+      <span className="popup__form-error" id="input-password-error">
         {isValid ? '' : errors.password}
       </span>
     </Form>

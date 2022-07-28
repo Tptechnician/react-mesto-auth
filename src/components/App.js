@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup.js';
@@ -10,6 +10,7 @@ import AddPlacePopup from './AddPlacePopup.js';
 import InfoTooltip from './InfoTooltip.js';
 import ImagePopup from './ImagePopup.js';
 import Register from './Register.js';
+import auth from '../utils/auth.js';
 import api from '../utils/api.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
@@ -19,7 +20,7 @@ import Main from './Main.js';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(true);
+  const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -30,6 +31,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const history = useHistory;
 
   function handleEditSuccessRegistration() {
     setisSuccessRegistration(!isSuccessRegistration);
@@ -161,7 +163,6 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
-
         <Switch>
           <Route path="/sign-up">
             <Register />
@@ -171,7 +172,7 @@ function App() {
           </Route>
 
           <ProtectedRoute
-            path="/"
+            expect path="/"
             loggedIn={loggedIn}
             component={Main}
             onDeletePlacePopup={handleDeleteCardClick}
