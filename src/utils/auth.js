@@ -45,7 +45,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'https://auth.nomoreparties.co',
+  url: 'https://auth.nomoreparties.co',
   headers: {
     'Content-Type': 'application/json'
   }

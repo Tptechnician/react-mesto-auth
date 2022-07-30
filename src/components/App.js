@@ -22,7 +22,6 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isInfoTooltipPopupOpen, setisInfoTooltipPopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = React.useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
@@ -30,15 +29,17 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
-  const [loggedIn, setLoggedIn] = React.useState(true);
+
+  const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [userEmail, setUserEmail] = React.useState('pavel@gmail.com');
-  const history = useHistory;
+  const history = useHistory();
 
   function handleEditSuccessRegistration() {
     setisSuccessRegistration(!isSuccessRegistration);
   }
 
-  function handleEditInfoTooltipClick() {
+  function handleEditInfoTooltipOpen() {
     setisInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
   }
 
@@ -151,6 +152,22 @@ function App() {
       });
   }
 
+  function handleRegistration(data) {
+    auth.register(data)
+      .then(
+        (data) => {
+          console.log(data);
+          setisSuccessRegistration(true);
+          handleEditInfoTooltipOpen();
+          history.push('/sign-in');
+        },
+        (err) => {
+          console.log(err);
+          setisSuccessRegistration(false);
+          handleEditInfoTooltipOpen();
+        })
+  }
+
   function handleCardClick(card) {
     setSelectedCard(card);
     setIsImagePopupOpen(true);
@@ -169,7 +186,9 @@ function App() {
         />
         <Switch>
           <Route path="/sign-up">
-            <Register />
+            <Register
+              onRegistration={handleRegistration}
+            />
           </Route>
           <Route path="/sign-in">
             <Login />

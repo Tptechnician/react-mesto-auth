@@ -8,7 +8,7 @@ function Register(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log('Форма регистрации');
+    props.onRegistration(values);
     resetErrors();
   }
 
