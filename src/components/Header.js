@@ -10,6 +10,7 @@ function Header(props) {
       <img className="header__logo" src={headerLogo} alt="лого" />
       {props.loggedIn &&
         <div className='header__container'>
+          <button className='header__menu-button' />
           <p className='header__email'>{props.userEmail}</p>
           <Link
             className='header__link'

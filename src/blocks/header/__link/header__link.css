@@ -13,3 +13,9 @@
 .header__link:hover {
     opacity: 0.6;
 }
+
+@media(min-width: 320px) and (max-width: 530px) {
+    .header__link {
+        display: none;
+    }
+}
