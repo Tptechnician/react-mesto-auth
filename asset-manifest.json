@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-mesto-auth/static/css/main.dcb8b81e.css",
-    "main.js": "/react-mesto-auth/static/js/main.75609f82.js",
+    "main.css": "/react-mesto-auth/static/css/main.812e6a8e.css",
+    "main.js": "/react-mesto-auth/static/js/main.01008fdd.js",
     "static/js/787.0fc3b920.chunk.js": "/react-mesto-auth/static/js/787.0fc3b920.chunk.js",
     "static/media/Inter-Medium.woff?": "/react-mesto-auth/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Black.woff": "/react-mesto-auth/static/media/Inter-Black.c6938660eec019fefd68.woff",
@@ -17,16 +17,17 @@
     "static/media/registrationIconTrue.svg": "/react-mesto-auth/static/media/registrationIconTrue.1b6082f862eac35e2514460237d96ecc.svg",
     "static/media/element-like-active.svg": "/react-mesto-auth/static/media/element-like-active.35948469632d0421d697.svg",
     "static/media/profile-Edit-Button.svg": "/react-mesto-auth/static/media/profile-Edit-Button.16b89cb2cd522a716f65.svg",
+    "static/media/header-menu-button.svg": "/react-mesto-auth/static/media/header-menu-button.a46d5c1c53c02d60fc80.svg",
     "static/media/profile__avatar-button.svg": "/react-mesto-auth/static/media/profile__avatar-button.6c7bf05444b9793fdf6e.svg",
     "static/media/Close-button.svg": "/react-mesto-auth/static/media/Close-button.039f1f5203f653b4bacd.svg",
     "static/media/profile-Add-Button-mobile.svg": "/react-mesto-auth/static/media/profile-Add-Button-mobile.d5d6f8af0577b9c95ee4.svg",
     "static/media/profile-Add-Button.svg": "/react-mesto-auth/static/media/profile-Add-Button.bed8c136e13907f5eefb.svg",
-    "main.dcb8b81e.css.map": "/react-mesto-auth/static/css/main.dcb8b81e.css.map",
-    "main.75609f82.js.map": "/react-mesto-auth/static/js/main.75609f82.js.map",
+    "main.812e6a8e.css.map": "/react-mesto-auth/static/css/main.812e6a8e.css.map",
+    "main.01008fdd.js.map": "/react-mesto-auth/static/js/main.01008fdd.js.map",
     "787.0fc3b920.chunk.js.map": "/react-mesto-auth/static/js/787.0fc3b920.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dcb8b81e.css",
-    "static/js/main.75609f82.js"
+    "static/css/main.812e6a8e.css",
+    "static/js/main.01008fdd.js"
   ]
 }
