@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import headerLogo from '../images/header-logo.svg';
 
 function Header(props) {
   const location = useLocation();
 
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  function toggleMenu() {
+    setIsOpenMenu(!isOpenMenu)
+  }
+
   return (
     <header className="header">
-      <img className="header__logo" src={headerLogo} alt="лого" />
+      <div className='header__container-main'>
+        <img className="header__logo" src={headerLogo} alt="лого" />
+        <button className={!isOpenMenu ? 'header__button-menu' : 'header__button-menu header__button-menu_open'}
+          onClick={toggleMenu}
+        />
+      </div>
       {props.loggedIn &&
         <div className='header__container'>
-          <button className='header__menu-button' />
           <p className='header__email'>{props.userEmail}</p>
-          <Link
-            className='header__link'
-            to="/sign-up"
+          <button
+            className='header__button-out'
+            onClick={props.onLoggedOut}
           >
             Выйти
-          </Link>
+          </button>
         </div>
       }
       {!props.loggedIn &&

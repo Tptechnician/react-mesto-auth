@@ -2,3 +2,9 @@
     padding-top: 10px;
     display: flex;
 }
+
+@media(max-width: 530px) {
+    .header__container {
+        display: none;
+    }
+}

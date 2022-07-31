@@ -32,12 +32,8 @@ function App() {
 
   const [isSuccessRegistration, setisSuccessRegistration] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('pavel@gmail.com');
+  const [userEmail, setUserEmail] = React.useState('');
   const history = useHistory();
-
-  function handleEditSuccessRegistration() {
-    setisSuccessRegistration(!isSuccessRegistration);
-  }
 
   function handleEditInfoTooltipOpen() {
     setisInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
@@ -156,7 +152,6 @@ function App() {
     auth.register(data)
       .then(
         (data) => {
-          console.log(data);
           setisSuccessRegistration(true);
           handleEditInfoTooltipOpen();
           history.push('/sign-in');
@@ -167,6 +162,49 @@ function App() {
           handleEditInfoTooltipOpen();
         })
   }
+
+  function handleAuthorization(data) {
+    auth.authorize(data)
+      .then(
+        (data) => {
+          localStorage.setItem('jwt', data.token);
+          setLoggedIn(true);
+          handleCheckToken();
+          //history.push('/');
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+  }
+
+  function handleCheckToken() {
+    const jwt = localStorage.getItem('jwt');
+    auth.checkToken(jwt)
+      .then(
+        (data) => {
+          setUserEmail(data.data.email);
+          setLoggedIn(true);
+          history.push('/');
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+  }
+
+  function handleLoggedOut() {
+    setLoggedIn(false);
+    localStorage.removeItem('jwt');
+    history.push('/sign-in');
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      handleCheckToken();
+    }
+  }, []);
 
   function handleCardClick(card) {
     setSelectedCard(card);
@@ -183,6 +221,7 @@ function App() {
         <Header
           loggedIn={loggedIn}
           userEmail={userEmail}
+          onLoggedOut={handleLoggedOut}
         />
         <Switch>
           <Route path="/sign-up">
@@ -191,7 +230,9 @@ function App() {
             />
           </Route>
           <Route path="/sign-in">
-            <Login />
+            <Login
+              onAuthorization={handleAuthorization}
+            />
           </Route>
 
           <ProtectedRoute
