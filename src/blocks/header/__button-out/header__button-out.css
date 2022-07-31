@@ -11,8 +11,8 @@
     cursor: pointer;
 }
 
-@media(min-width: 320px) and (max-width: 530px) {
+@media(min-width: 530px) {
     .header__button-out {
-        display: none;
+        display: block;
     }
 }
