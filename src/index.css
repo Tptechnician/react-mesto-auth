@@ -12,6 +12,8 @@
 @import url(./blocks/header/__button-out/header__button-out.css);
 @import url(./blocks/header/__container-main/header__container-main.css);
 @import url(./blocks/header/__button-menu/_open/header__button-menu_open.css);
+@import url(./blocks/header/__container/_open/header__container_open.css);
+@import url(./blocks/header/_menu-open/header_menu-open.css);
 
 
 @import url(./blocks/profile/profile.css);

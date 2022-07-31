@@ -1,0 +1,5 @@
+.header__container_open {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}

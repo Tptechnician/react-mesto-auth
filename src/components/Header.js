@@ -12,7 +12,7 @@ function Header(props) {
   }
 
   return (
-    <header className="header">
+    <header className={!isOpenMenu ? 'header' : 'header header_menu-open'}>
       <div className='header__container-main'>
         <img className="header__logo" src={headerLogo} alt="лого" />
         <button className={!isOpenMenu ? 'header__button-menu' : 'header__button-menu header__button-menu_open'}
@@ -20,7 +20,7 @@ function Header(props) {
         />
       </div>
       {props.loggedIn &&
-        <div className='header__container'>
+        <div className={!isOpenMenu ? 'header__container' : 'header__container header__container_open'}>
           <p className='header__email'>{props.userEmail}</p>
           <button
             className='header__button-out'
