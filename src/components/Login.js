@@ -6,7 +6,7 @@ function Login(props) {
   const { values, isValid, errors, resetErrors, handleChange } = FormValidator({});
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onAuthorization(values);
+    props.onSubmit(values);
     resetErrors();
   }
 

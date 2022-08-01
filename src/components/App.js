@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Route, Switch, useHistory, useState } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup.js';
@@ -36,23 +36,23 @@ function App() {
   const history = useHistory();
 
   function handleEditInfoTooltipOpen() {
-    setisInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
+    setisInfoTooltipPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleEditAvatarClick() {
-    setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
+    setIsAddPlacePopupOpen(true);
   }
 
   function handleDeleteCardClick() {
-    setIsDeletePopupOpen(!isDeletePopupOpen);
+    setIsDeletePopupOpen(true);
   }
 
   function closeAllPopups() {
@@ -62,7 +62,6 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsDeletePopupOpen(false);
     setIsImagePopupOpen(false);
-    setTimeout(() => setSelectedCard({}), 1000);
   }
 
   useEffect(() => {
@@ -164,13 +163,13 @@ function App() {
   }
 
   function handleAuthorization(data) {
+    setUserEmail(data.email);
     auth.authorize(data)
       .then(
         (data) => {
           localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
-          handleCheckToken();
-          //history.push('/');
+          history.push('/');
         },
         (err) => {
           console.log(err);
@@ -226,12 +225,12 @@ function App() {
         <Switch>
           <Route path="/sign-up">
             <Register
-              onRegistration={handleRegistration}
+              onSubmit={handleRegistration}
             />
           </Route>
           <Route path="/sign-in">
             <Login
-              onAuthorization={handleAuthorization}
+              onSubmit={handleAuthorization}
             />
           </Route>
 

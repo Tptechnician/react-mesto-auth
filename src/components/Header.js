@@ -57,7 +57,6 @@ function Header(props) {
               Выйти
             </button>
           </div>
-
         </Route>
       </Switch>
 

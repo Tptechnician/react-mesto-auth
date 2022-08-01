@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 function Popup(props) {
   useEffect(() => {
-    if (props.isOpen === true) {
+    if (props.isOpen) {
       document.addEventListener('keydown', handleEscClose);
     }
     return () => { document.removeEventListener('keydown', handleEscClose); }

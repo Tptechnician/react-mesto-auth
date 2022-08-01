@@ -8,7 +8,7 @@ function Register(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegistration(values);
+    props.onSubmit(values);
     resetErrors();
   }
 
