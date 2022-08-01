@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import headerLogo from '../images/header-logo.svg';
 
 function Header(props) {
-  console.log(props.loggedIn);
   const location = useLocation();
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -13,7 +12,7 @@ function Header(props) {
   }
 
   function clickLoggedOut() {
-    toggleMenu();
+    setIsOpenMenu(false);
     props.onLoggedOut();
   }
 
